@@ -1,5 +1,10 @@
 ### Source: https://www.tutorialspoint.com/apache_kafka/apache_kafka_basic_operations.htm
 
+- Start kafka broker:
+```
+bin/kafka-server-start.sh config/server.properties
+```
+
 - Creating a Kafka Topic − Kafka provides a command line utility named kafka-topics.sh to create topics on the server. 
 Open new terminal and type the below example.
 ```
