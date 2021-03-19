@@ -1,4 +1,6 @@
-### Source: https://www.tutorialspoint.com/apache_kafka/apache_kafka_basic_operations.htm
+### Source: 
+- https://www.tutorialspoint.com/apache_kafka/apache_kafka_basic_operations.htm
+- https://kafka.apache.org/quickstart
 
 - Start kafka broker:
 ```
