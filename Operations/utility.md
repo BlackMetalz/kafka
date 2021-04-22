@@ -1,0 +1,2 @@
+-- https://github.com/obsidiandynamics/kafdrop
+-- kafka manager
