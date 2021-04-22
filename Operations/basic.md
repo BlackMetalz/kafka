@@ -9,6 +9,7 @@ bin/kafka-server-start.sh config/server.properties
 ```
 
 - Creating a Kafka Topic − Kafka provides a command line utility named kafka-topics.sh to create topics on the server. 
+Note: Don't use `.` ( dot ) or `_` ( underscore ) for topic names
 Open new terminal and type the below example.
 ```
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1  --partitions 1 --topic topic-name
@@ -17,6 +18,11 @@ Output:
 ```
 root@sys-test-48-54:/data/kafka/kafka_2.13-2.7.0# bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic hello-kafka
 Created topic hello-kafka.
+```
+
+- Delete topic:
+```
+./bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic topic-name
 ```
 
 - List kafka topics:
