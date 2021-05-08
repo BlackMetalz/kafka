@@ -15,7 +15,7 @@ Restart=on-abnormal
 WantedBy=multi-user.target
 ```
 
-2. Kafka: 
+2. Kafka: /etc/systemd/system/kafka.service
 ```
 [Unit]
 Requires=zookeeper.service
