@@ -78,13 +78,14 @@ topic finally Isr is the set of in-sync replicas. Well, this is the subset of re
 
 
 
-
-
-Miscellaneous
+- Miscellaneous
 Find all the partitions where one or more of the replicas for the partition are not in-sync with the leader.
 ```
 $KAFKA_HOME/bin/kafka-topics.sh --zookeeper localhost:2181 --describe --under-replicated-partitions
 ```
 
-
+- List all broker ID available in cluster:
+```
+bin/zookeeper-shell.sh zookeeperhost:port ls /brokers/ids/
+```
 
