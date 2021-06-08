@@ -33,6 +33,6 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic-na
 
 - List all broker ID available in cluster:
 ```
-bin/zookeeper-shell.sh zookeeperhost:port ls /brokers/ids/
+bin/zookeeper-shell.sh zookeeperhost:port ls /brokers/ids
 ```
 
