@@ -8,10 +8,12 @@
 bin/kafka-server-start.sh config/server.properties
 ```
 
+
 - Start Producer to Send Messages:
 ```
 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic-name
 ```
+
 Then type something like:
 ```
 hello
@@ -21,18 +23,11 @@ abc
 wtf
 uuu.kimochi
 ```
+
 - Start Consumer to Receive Messages
-```
-bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic topic-name --from-beginning
-```
-The command above doesn't work
-Use this!
 ```
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic-name --from-beginning
 ```
 
-- List all broker ID available in cluster:
-```
-bin/zookeeper-shell.sh zookeeperhost:port ls /brokers/ids
-```
+
 
