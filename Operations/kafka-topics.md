@@ -15,6 +15,11 @@ Created topic hello-kafka.
 ./bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic topic-name
 ```
 
+- Delete topic with pattern / regex:
+```
+./bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic 'topic_name-.*'
+```
+
 - List kafka topics:
 ```
 bin/kafka-topics.sh --list --zookeeper localhost:2181
