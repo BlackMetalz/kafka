@@ -9,6 +9,11 @@ Output:
 root@sys-test-48-54:/data/kafka/kafka_2.13-2.7.0# bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic hello-kafka
 Created topic hello-kafka.
 ```
+More example:
+```
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 2  --partitions 6 --config retention.ms=43200000 --topic topic-name
+```
+
 
 - Delete topic:
 ```
