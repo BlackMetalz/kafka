@@ -27,3 +27,6 @@ Increase the setting with :
 sysctl -w vm.max_map_count=262144
 # Source: https://stackoverflow.com/questions/43042144/kafka-server-failed-to-start-java-io-ioexception-map-failed
 ```
+
+-- This is not error but warning: producer use only one key for push data to kafka broker. It only send data to only one partition for ordering.
+![image](https://user-images.githubusercontent.com/3434274/123737519-473ce300-d8cd-11eb-8f1c-65a828c542b0.png)
