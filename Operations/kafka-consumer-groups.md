@@ -7,12 +7,33 @@ kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
 kafka-consumer-groups.sh --bootstrap-server localhost:9092 --delete --group group_name
 ```
 
+-- State
+```
+kafka-consumer-groups --bootstrap-server 10.3.68.28:9092 --describe --group filebeat --state
+```
+
+Output demo:
+```
+GROUP                     COORDINATOR (ID)          ASSIGNMENT-STRATEGY  STATE           #MEMBERS
+filebeat                  10.3.68.28:9092 (5)       range                Stable          4
+```
+with state stable and member != 0. You can not delete consumer group.
+Stop consumer group all and u will see this:
+```
+Consumer group 'filebeat' has no active members.
+
+GROUP                     COORDINATOR (ID)          ASSIGNMENT-STRATEGY  STATE           #MEMBERS
+filebeat                  10.3.68.28:9092 (5)                            Empty           0
+```
+
+Now you can delete consumer group
+
+
 -- Detail consumer group:
 ```
 bin/kafka-consumer-groups.sh --describe --group mygroup --bootstrap-server localhost:9092
 ```
-
--- Output demo:
+ Output demo:
 ```
 GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                   HOST            CLIENT-ID
 filebeat        topic-name    2          51472879        51476533        3654            filebeat-9739b0f2-2887-47e0-b76d-f02128047268 /10.5.1.72      filebeat
