@@ -1,5 +1,5 @@
 # in kafka server config ( server.propertie ) . Add or update following line
-```
+
 listeners=PLAINTEXT://10.3.48.54:9092,SASL_PLAINTEXT://10.3.48.54:9093
 advertised.listeners=PLAINTEXT://10.3.48.54:9092,SASL_PLAINTEXT://10.3.48.54:9093
 security.inter.broker.protocol=SASL_PLAINTEXT
@@ -9,4 +9,4 @@ authorizer.class.name=kafka.security.auth.SimpleAclAuthorizer
 allow.everyone.if.no.acl.found=false
 super.users=User:admin
 zookeeper.set.acl=false
-```
+
