@@ -12,7 +12,7 @@ admin.enableServer=false
 # admin.serverPort=8080
 ```
 
-2. For cluster mode
+2. For cluster mode with auth
 ```
 # http://hadoop.apache.org/zookeeper/docs/current/zookeeperAdmin.html
 # The number of milliseconds of each tick
@@ -82,9 +82,15 @@ standaloneEnabled=false
 
 requireClientAuthScheme=sasl
 authProvider.1=org.apache.zookeeper.server.auth.SASLAuthenticationProvider
-#authProvider.2=org.apache.zookeeper.server.auth.SASLAuthenticationProvider
-#authProvider.3=org.apache.zookeeper.server.auth.SASLAuthenticationProvider
 jaasLoginRenew=3600000
 
 4lw.commands.whitelist=mntr,conf,ruok
+```
+
+3. Cluster without auth: 
+comment following line
+```
+requireClientAuthScheme=sasl
+authProvider.1=org.apache.zookeeper.server.auth.SASLAuthenticationProvider
+jaasLoginRenew=3600000
 ```
