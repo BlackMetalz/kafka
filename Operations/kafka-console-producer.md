@@ -7,4 +7,5 @@ producer.properties content for auth:
 ```
 sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="kienlt" password="password_go_here";
 security.protocol=SASL_PLAINTEXT
-sasl.mechanism=SCRAM-SHA-256```
+sasl.mechanism=SCRAM-SHA-256
+```
