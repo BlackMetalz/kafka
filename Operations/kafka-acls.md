@@ -1,6 +1,6 @@
 ## Source: https://docs.confluent.io/platform/current/kafka/authorization.html
 
-- Show list permission: `bin/kafka-acls.sh --authorizer-properties zookeeper.connect=10.3.48.54:2181 --list`
+## - Show list permission: `bin/kafka-acls.sh --authorizer-properties zookeeper.connect=10.3.48.54:2181 --list`
 
 Output:
 ```
@@ -25,7 +25,7 @@ Current ACLs for resource `ResourcePattern(resourceType=GROUP, name=*, patternTy
 
 User in host 10.3.48.54 / 10.3.48.56 / 10.3.48.82 has full permission
 
-- Allow user test1 have all access to group/topic with prefix `test_`
+## - Add: Allow user test1 have all access to group/topic with prefix `test_`
 ```
 bin/kafka-acls.sh --authorizer-properties zookeeper.connect=10.3.48.54:2181,10.3.48.56:2181,10.3.48.82:2181 --add --allow-principal User:test1 --allow-host '*' --operation ALL --topic 'test_' --group 'test_' --resource-pattern-type prefixed
 ```
@@ -49,4 +49,40 @@ Principal “user2” has access to all topics that start with “com.company.pr
 Principal “user1” has access to all consumer groups that start with “com.company.client1.”.
 Support for adding ACLs to such 'prefixed resource patterns' will greatly simplify ACL operational story in a multi-tenant environment.
 
+```
+
+## - Delete
+Current i have following ACLs
+```
+Current ACLs for resource `ResourcePattern(resourceType=GROUP, name=test_, patternType=PREFIXED)`:
+        (principal=User:test1, host=bin, operation=ALL, permissionType=ALLOW)
+        (principal=User:test1, host=*, operation=ALL, permissionType=ALLOW)
+
+Current ACLs for resource `ResourcePattern(resourceType=TOPIC, name=test_, patternType=PREFIXED)`:
+        (principal=User:test1, host=bin, operation=ALL, permissionType=ALLOW)
+        (principal=User:test1, host=*, operation=ALL, permissionType=ALLOW)
+
+```
+
+I want remove part host = bin. Command:
+```
+bin/kafka-acls.sh --authorizer-properties zookeeper.connect=10.3.48.54:2181,10.3.48.56:2181,10.3.48.82:2181 --remove --allow-principal User:test1  --allow-host
+ 'bin'  --operation ALL --topic 'test_' --group 'test_' --resource-pattern-type prefixed
+```
+
+Output:
+```
+Are you sure you want to remove ACLs:
+        (principal=User:test1, host=bin, operation=ALL, permissionType=ALLOW)
+ from resource filter `ResourcePattern(resourceType=TOPIC, name=test_, patternType=PREFIXED)`? (y/n)
+y
+Are you sure you want to remove ACLs:
+        (principal=User:test1, host=bin, operation=ALL, permissionType=ALLOW)
+ from resource filter `ResourcePattern(resourceType=GROUP, name=test_, patternType=PREFIXED)`? (y/n)
+y
+Current ACLs for resource `ResourcePattern(resourceType=TOPIC, name=test_, patternType=PREFIXED)`:
+        (principal=User:test1, host=*, operation=ALL, permissionType=ALLOW)
+
+Current ACLs for resource `ResourcePattern(resourceType=GROUP, name=test_, patternType=PREFIXED)`:
+        (principal=User:test1, host=*, operation=ALL, permissionType=ALLOW)
 ```
