@@ -25,9 +25,9 @@ Current ACLs for resource `ResourcePattern(resourceType=GROUP, name=*, patternTy
 
 User in host 10.3.48.54 / 10.3.48.56 / 10.3.48.82 has full permission
 
-- Allow user test1 have all access to group/topic: `test`
+- Allow user test1 have all access to group/topic with prefix `test_`
 ```
-bin/kafka-acls.sh --authorizer-properties zookeeper.connect=10.3.48.54:2181,10.3.48.56:2181,10.3.48.82:2181 --add --allow-principal User:test1  --allow-host *  --operation ALL --topic test --group test --resource-pattern-type Wildcard
+bin/kafka-acls.sh --authorizer-properties zookeeper.connect=10.3.48.54:2181,10.3.48.56:2181,10.3.48.82:2181 --add --allow-principal User:test1 --allow-host '*' --operation ALL --topic 'test_' --group 'test_' --resource-pattern-type prefixed
 ```
 
 Explain: https://kafka.apache.org/20/javadoc/org/apache/kafka/common/resource/PatternType.html
