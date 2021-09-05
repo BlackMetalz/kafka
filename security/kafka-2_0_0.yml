@@ -1,3 +1,5 @@
+# I guess source here: https://github.com/confluentinc/jmx-monitoring-stacks/tree/6.1.0-post/shared-assets/jmx-exporter xD
+
 lowercaseOutputName: true
 
 rules:
