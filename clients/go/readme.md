@@ -20,6 +20,9 @@ sasl.username=test1
 sasl.password=test1
 group.id=test_1_group
 ```
+
+2 files config for more clear i guess, but you can take them all in one file only xD
+
 ### - Producer
 ```
 ./producer -f producer.conf -t test_1
