@@ -24,9 +24,24 @@ group.id=test_1_group
 ```
 ./producer -f producer.conf -t test_1
 ```
-### - Consumer
+### - Consumer. In this time i did test, there is a little trouble related to group. 
+
+You have to update in source code that group.id is read from config file!
+```
+        // Create Consumer instance
+        c, err := kafka.NewConsumer(&kafka.ConfigMap{
+                "bootstrap.servers": conf["bootstrap.servers"],
+                "sasl.mechanisms": conf["sasl.mechanisms"],
+                "security.protocol": conf["security.protocol"],
+                "sasl.username":     conf["sasl.username"],
+                "sasl.password":     conf["sasl.password"],
+                "group.id":          conf["group.id"],
+                "auto.offset.reset": "earliest",
+        })
 ```
 
+```
+./consumer -f consumer.conf -t test_1
 ```
 
 
