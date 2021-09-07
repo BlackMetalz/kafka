@@ -1,5 +1,5 @@
 - MirrorMaker2 Architecture: https://github.com/apache/kafka/tree/trunk/connect/mirror
-
+- Config: https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0
 ![image](https://user-images.githubusercontent.com/3434274/125752406-358d94e0-c03c-4934-99d1-59f0cba812b4.png)
 
 
