@@ -51,8 +51,27 @@ Example use cases:
 Principal “user2” has access to all topics that start with “com.company.product1.”.
 Principal “user1” has access to all consumer groups that start with “com.company.client1.”.
 Support for adding ACLs to such 'prefixed resource patterns' will greatly simplify ACL operational story in a multi-tenant environment.
-
 ```
+
+What happens when i grant full permission to one host. In this example it is 10.5.94.94
+```
+Current ACLs for resource `ResourcePattern(resourceType=CLUSTER, name=kafka-cluster, patternType=LITERAL)`:
+        (principal=User:*, host=10.5.94.94, operation=ALL, permissionType=ALLOW)
+
+Current ACLs for resource `ResourcePattern(resourceType=TOPIC, name=*, patternType=LITERAL)`:
+        (principal=User:*, host=10.5.94.94, operation=ALL, permissionType=ALLOW)
+
+Current ACLs for resource `ResourcePattern(resourceType=GROUP, name=*, patternType=LITERAL)`:
+        (principal=User:*, host=10.5.94.94, operation=ALL, permissionType=ALLOW)
+```
+
+It turn about resourceType: cluster, group, topic like above!
+
+When restart mm2, if `sync.topic.acls.enabled = true`. It will sync permission to cluster left with resourceType=TOPIC
+If you want sync resouceType=CLUSTER or GROUP. You have to enable them as well xD
+
+
+
 
 ## - Delete
 Current i have following ACLs
