@@ -136,3 +136,8 @@ ExecStart=/data/kafka/kafka_2.13-2.7.0/bin/connect-mirror-maker.sh /data/kafka/k
 [Install]
 WantedBy=multi-user.target
 ```
+
+- Start service, that's all.
+Note for mm2:
+At this time it doesn't auto sync data for topic, you have to restart mm2 process. With saltstack be like: `salt -b 1 kafka-cluster-* service.restart mm2`
+For delete topic, you have to delete it in both cluster.
