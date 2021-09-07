@@ -89,3 +89,15 @@ Current ACLs for resource `ResourcePattern(resourceType=TOPIC, name=test_, patte
 Current ACLs for resource `ResourcePattern(resourceType=GROUP, name=test_, patternType=PREFIXED)`:
         (principal=User:test1, host=*, operation=ALL, permissionType=ALLOW)
 ```
+
+Another example with delete
+```
+Current ACLs for resource `ResourcePattern(resourceType=TOPIC, name=cluster_10_3_cluster_10_5_*, patternType=LITERAL)`:
+        (principal=User:*, host=10.5.92.67, operation=READ, permissionType=ALLOW)
+        (principal=User:*, host=10.5.93.70, operation=READ, permissionType=ALLOW)
+        (principal=User:*, host=10.3.48.54, operation=READ, permissionType=ALLOW)
+        (principal=User:*, host=10.3.48.56, operation=READ, permissionType=ALLOW)
+        (principal=User:*, host=10.5.93.192, operation=READ, permissionType=ALLOW)
+        (principal=User:*, host=10.3.48.82, operation=READ, permissionType=ALLOW)
+```
+Use: `bin/kafka-acls.sh --authorizer-properties zookeeper.connect=10.5.92.67:2181 --remove --topic 'cluster_10_3_cluster_10_5_*'`
