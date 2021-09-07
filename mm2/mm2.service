@@ -1,4 +1,4 @@
-```
+
 # path: /etc/systemd/system/mm2.service
 [Unit]
 Description=Mirror Make 2 Service
@@ -15,4 +15,3 @@ Environment="KAFKA_OPTS=-javaagent:/data/kafka/kafka_2.13-2.7.0/bin/jmx_promethe
 ExecStart=/data/kafka/kafka_2.13-2.7.0/bin/connect-mirror-maker.sh /data/kafka/kafka_2.13-2.7.0/config/mm2.properties
 [Install]
 WantedBy=multi-user.target
-```
