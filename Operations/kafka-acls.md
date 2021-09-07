@@ -101,3 +101,9 @@ Current ACLs for resource `ResourcePattern(resourceType=TOPIC, name=cluster_10_3
         (principal=User:*, host=10.3.48.82, operation=READ, permissionType=ALLOW)
 ```
 Use: `bin/kafka-acls.sh --authorizer-properties zookeeper.connect=10.5.92.67:2181 --remove --topic 'cluster_10_3_cluster_10_5_*'`
+
+
+Don't care for user and complete want to remove any permission related to that topic?
+```
+bin/kafka-acls.sh --authorizer-properties zookeeper.connect=10.5.92.67:2181 --remove --topic 'CLUSTER-10-3_test*'
+```
