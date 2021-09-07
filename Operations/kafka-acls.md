@@ -1,6 +1,9 @@
 ## Source: https://docs.confluent.io/platform/current/kafka/authorization.html
 
-## - Show list permission: `bin/kafka-acls.sh --authorizer-properties zookeeper.connect=10.3.48.54:2181 --list`
+## - Show list permission: 
+```
+bin/kafka-acls.sh --authorizer-properties zookeeper.connect=10.3.48.54:2181 --list
+```
 
 Output:
 ```
